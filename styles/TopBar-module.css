@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .logo {
-  @apply flex items-center border-2 p-1 text-white;
+  @apply hover:text-gold flex items-center border-2 p-1 text-white;
 }

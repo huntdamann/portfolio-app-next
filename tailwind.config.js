@@ -7,6 +7,12 @@ module.exports = {
   theme: {
     extend: {
 
+      screens: {
+        'smd': '490px',
+        // => @media (min-width: 490px)
+        'lgmd': '568px',
+        'xs': '460px',
+      },
       colors: {
 
         'gold': '#b79a00',

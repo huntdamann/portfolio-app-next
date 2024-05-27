@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import SideBar from './SideBar';
 import TopBar from './TopBar';
+import Parallax from './Parallax';
 import 'tailwindcss/tailwind.css';
 import { IoHomeSharp } from "react-icons/io5";
 
@@ -14,9 +15,15 @@ export default function Home() {
 
       <>
       
-      <TopBar />
       
-      <div className="bg-red-500 flex flex-col items-center"> Insert Here </div>
+      
+      <body className="bg-gradient-to-t flex flex-col from-white from-5% min-h-screen via-yellow-300 via-30% to-gold">
+
+      <TopBar />
+      <Parallax />
+
+
+      </body>
       
       
       </>

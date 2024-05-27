@@ -29,11 +29,11 @@ const TopBar = () => {
     }
     return(
     <>
-    <header className={`flex justify-evenly gap-80 bg-gray-700 transition-all duration-200 ease-out min-h-16 items-center ${open ? "opacity-0" : "opacity-100"}`}>
+    <header className={`flex justify-evenly sm:gap-[28rem] xs:gap-[18rem] smd:gap-[20rem] lgmd:gap-[24rem] md:gap-[36rem] gap-56 border-2 w-screen bg-gray-700 transition-all duration-200 ease-out min-h-16 items-center ${open ? "opacity-0" : "opacity-100"}`}>
 
         
-        <div className="logo relative">Logo Here</div>
-        <button onClick={() =>{showNav(!open)}} className=" flex relative items-centerw-9 rounded-md cursor-pointer text-gold hover:bg-gold hover:text-black transition-all ease-linear duration-75 
+        <div className="logo">Logo Here</div>
+        <button onClick={() =>{showNav(!open)}} className="flex relative items-center w-9 rounded-md cursor-pointer text-gold hover:bg-gold hover:text-black transition-all ease-linear duration-75 
                             shadow-sm">
             <RxHamburgerMenu size="32" />
         </button>

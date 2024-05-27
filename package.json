@@ -1,5 +1,4 @@
 {
-  "homepage": "http://huntdamann.github.io/portfolio-app-next",
   "private": true,
   "scripts": {
     "build": "next build",

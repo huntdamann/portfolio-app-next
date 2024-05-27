@@ -21,6 +21,7 @@ const SideBar = ({open}) => {
             <SideBarIcon icon={<MdWork size="28" />}text={"Work With Me"} />
            
         </nav>
+        
     );
 };
 
