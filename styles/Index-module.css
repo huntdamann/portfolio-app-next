@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .hero-box-container {
-  @apply mt-36 flex flex-col items-center gap-28 p-3;
+  @apply mt-36 hidden flex-col items-center gap-28 p-3;
 }

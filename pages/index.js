@@ -17,9 +17,13 @@ export default function Home() {
       
       
       
-      <body className="bg-gradient-to-t flex flex-col from-white from-5% min-h-screen via-yellow-300 via-30% to-gold">
 
-      <TopBar />
+
+
+      <TopBar/>
+      <body className="bg-gradient-to-t flex flex-col from-water-blue from-5% min-h-screen via-yellow-300 via-30% to-sky-blue">
+
+      
       <Parallax />
 
 

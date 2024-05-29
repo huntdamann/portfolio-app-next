@@ -3,5 +3,23 @@
 @tailwind utilities;
 
 .parallax-cellphone {
-  @apply border;
+  @apply opacity-0;
+}
+.parallax-trees {
+  @apply absolute  bottom-0 z-[4] w-full;
+}
+.parallax-mountain {
+  @apply absolute bottom-24 left-0 z-[3] w-full;
+}
+.parallax-mountain2 {
+  @apply absolute bottom-36 z-[2] w-full;
+}
+.parallax-sky {
+  @apply absolute top-28 z-[1] hidden w-full;
+}
+.parallax-outer {
+  @apply mt-20 flex border-red-50;
+}
+.parallax {
+  @apply w-full;
 }
