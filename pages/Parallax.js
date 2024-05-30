@@ -1,63 +1,53 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
+import { ParallaxProvider, useParallax } from "react-scroll-parallax";
 import Image from "next/image";
 import phone from "../public/cellphone-outline.jpg";
 import trees from "../public/trees.jpg";
 import mountain1 from "../public/mountain1.png";
 import mountain2 from "../public/mountain2.png";
-import sky from "../public/sky.png";
+import sun from "../public/sun.png";
 import river from "../public/river.png";
+import bubbles from "../public/bubbles.jpg.png"
+import useScrollPosition from "./useScrollPosition";
 
-const Parallax = () => {
+const ParallaxEffect = () => {
 
     const [offsetY, setOffsetY] = useState(0);
-    const handleScroll = () => setOffsetY(window.scrollY)
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll )
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [])
+    const {ref} = useParallax({ speed: 1});
+    const {ref : mountainRef} = useParallax({ speed: 3});
+    const scrollPosition = useScrollPosition();
+    console.log(scrollPosition);
+    
+    const handleScroll = () => { console.log(window.scrollY)
+    }
 
     return(
 
-        <div className="parallax-outer">
+        <ParallaxProvider>
 
           <div className="parallax">
-
-            <div className="hero-box-container">
-
-               <div className="border rounded-md w-80 p-5 shadow-lg bg-gold">
-                <p>1. Always keep going</p>
-                <p>2. Believe in yourself or nobody will</p>
-                <p>3. Embrace your uniqueness</p>
-          
-                </div>
-                <div className="border">Info 2</div>
-
-
-             </div>
-             
             
-             <div className="parallax-sky">
+             <div data-speed="0.2" className="parallax-sun translate">
        
               <Image 
-                src={sky}
-                width={1500}
+                src={sun}
+                width={60}
                 
                 />
             </div>
-            <div className="parallax-mountain">
+            <div ref={ref} data-speed="0.2" className="parallax-mountain translate">
        
               <Image 
                 src={mountain1}
                 />
             </div>
-            <div className="parallax-mountain2">
+            <div ref={mountainRef} data-speed="0.2" className="parallax-mountain2 translate">
        
               <Image 
                 src={mountain2}
                 />
             </div>
-            <div className="parallax-trees">
+            <div data-speed="0.2" className="parallax-trees translate">
             
             <Image 
               src={river}
@@ -66,19 +56,25 @@ const Parallax = () => {
               
               />
             </div>
+            <div data-speed="0.2" className="parallax-bubbles translate">
+
+              <Image 
+            
+                src={bubbles}
+                width={50}
+              
+              />
+            </div>
          </div>
 
-      <div className="parallax-cellphone">
-       
-       <Image 
-        src={phone}
-        />
-      </div>
-        </div>
+         <div className="parallax-text"><span>We Outside</span></div>
+
+     
+        </ParallaxProvider>
 
     );
 
 
 };
 
-export default Parallax;
+export default ParallaxEffect;
