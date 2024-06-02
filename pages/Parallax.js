@@ -1,77 +1,64 @@
 import React, {useEffect, useState, useRef} from "react";
-import { ParallaxProvider, useParallax } from "react-scroll-parallax";
+import {motion, useScroll, useTransform} from "framer-motion"; 
 import Image from "next/image";
-import phone from "../public/cellphone-outline.jpg";
-import trees from "../public/trees.jpg";
-import mountain1 from "../public/mountain1.png";
-import mountain2 from "../public/mountain2.png";
-import sun from "../public/sun.png";
-import river from "../public/river.png";
-import bubbles from "../public/bubbles.jpg.png"
+import trees from "../public/Trees.png";
+import mountain1 from "../public/Mountain.png";
+import cloud from "../public/cloud.png"
 import useScrollPosition from "./useScrollPosition";
 
 const ParallaxEffect = () => {
 
-    const [offsetY, setOffsetY] = useState(0);
-    const {ref} = useParallax({ speed: 1});
-    const {ref : mountainRef} = useParallax({ speed: 3});
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["start start", "end start"],
+    });
+  
+    const backgroundY = useTransform(scrollYProgress, [0,1], ["0%", "150%"]);
+    const textY = useTransform(scrollYProgress, [0,1], ["0%", "200%"]);
+    const treeY = useTransform(scrollYProgress, [0,1], ["0%", "175%"]);
+
+    //Calculate Mouse Scroll Position
     const scrollPosition = useScrollPosition();
     console.log(scrollPosition);
-    
-    const handleScroll = () => { console.log(window.scrollY)
-    }
 
     return(
 
-        <ParallaxProvider>
 
-          <div className="parallax">
+        <>
+        
+        {/*Container to hold parallax animations */}
+          <div ref={ref} className="parallax">
             
-             <div data-speed="0.2" className="parallax-sun translate">
+            <motion.div className="parallax-mountain" style={{
+
+              backgroundPosition: "bottom",
+              backgroundSize: "cover",
+              backgroundImage: `url(${mountain1.src})`,
+              y: backgroundY,
+            }}>
+            </motion.div>
+          
+            <motion.div className="parallax-trees" style={{
+
+                            
+              backgroundPosition: "top",
+              backgroundSize: "cover",
+              backgroundImage: `url(${trees.src})`,
+              y: treeY,
+            }}>
        
-              <Image 
-                src={sun}
-                width={60}
-                
-                />
-            </div>
-            <div ref={ref} data-speed="0.2" className="parallax-mountain translate">
-       
-              <Image 
-                src={mountain1}
-                />
-            </div>
-            <div ref={mountainRef} data-speed="0.2" className="parallax-mountain2 translate">
-       
-              <Image 
-                src={mountain2}
-                />
-            </div>
-            <div data-speed="0.2" className="parallax-trees translate">
-            
-            <Image 
-              src={river}
-              width={2000}
-              height={500}
-              
-              />
-            </div>
-            <div data-speed="0.2" className="parallax-bubbles translate">
+            </motion.div>
+           
+            <motion.div style={{
+              y:textY,
+            }} className="parallax-text"><span>We Outside</span></motion.div>
+          </div>
 
-              <Image 
-            
-                src={bubbles}
-                width={50}
-              
-              />
-            </div>
-         </div>
-
-         <div className="parallax-text"><span>We Outside</span></div>
-
-     
-        </ParallaxProvider>
-
+         <section className="text-2xl p-8 bg-gray-700 text-white">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni doloremque suscipit mollitia atque asperiores error quia ducimus magnam voluptatibus nam dolorum aut quae vero autem fugit eveniet, accusamus dolore deleniti accusantium rerum soluta! Temporibus esse ullam quos, sit amet sapiente commodi, ad quisquam eveniet voluptas eos ex officiis saepe, cumque iure earum enim odit? Id reiciendis fugiat quasi blanditiis soluta corrupti necessitatibus iusto accusantium natus, atque, quidem inventore architecto consequatur, aliquid maiores labore exercitationem expedita ut eveniet sed. Quam saepe quo repellat culpa totam exercitationem inventore, ducimus natus commodi labore velit officiis magni enim facilis nam reprehenderit nemo libero dignissimos!
+         </section>
+        </>
     );
 
 

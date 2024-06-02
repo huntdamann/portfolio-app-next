@@ -2,30 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.parallax-cellphone {
-  @apply opacity-0;
-}
 .parallax-trees {
-  @apply absolute  bottom-0 z-[8]  w-full;
+  @apply absolute inset-0 z-30;
 }
 .parallax-mountain {
-  @apply absolute bottom-12 left-0 z-[3] w-full;
+  @apply absolute inset-0 z-10;
 }
-.parallax-mountain2 {
-  @apply absolute bottom-24 z-[2] w-full;
+.parallax-cloud {
+  @apply absolute inset-0  top-5 z-10 bg-no-repeat;
 }
-.parallax-sun {
-  @apply absolute bottom-36 left-24  z-[1];
-}
-.parallax-outer {
-  @apply mt-20 flex border-red-50;
-}
+
 .parallax {
-  @apply w-full;
+  @apply relative flex h-screen w-full flex-col place-items-center items-center overflow-hidden overflow-y-hidden bg-blue-400;
 }
 .parallax-text {
-  @apply absolute left-6 top-[300px] min-w-28 font-mono  text-6xl font-extrabold text-white;
-}
-.parallax-bubbles {
-  @apply absolute bottom-[-200px] left-16 z-[15]  opacity-45;
+  @apply relative top-80 z-20 min-w-28 font-mono text-6xl font-extrabold text-white shadow-sm;
 }

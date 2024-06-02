@@ -13,7 +13,7 @@ const SideBar = ({open}) => {
     return(
 
         <nav className={`flex flex-col transition-all ease-in z-40 duration-100 m-0 fixed shadow-lg min-w-36 gap-7 pl-11 pt-5 
-        scale-60 top-0 bg-transparent h-screen ${open ? "opacity-100" : "opacity-0"}`}>
+        scale-60 top-0 bg-gray-700 h-screen ${open ? "opacity-100" : "opacity-0"}`}>
             <SideBarIcon icon={<IoHomeSharp size="28" />} text={"Home"} />
             <SideBarIcon icon={<SiAboutdotme size="28" />} text={"About Me"}/>
             <SideBarIcon icon={<AiFillProject size="28" />}text={"Portfolio"} />
